@@ -35,3 +35,19 @@ const menu=document.querySelector('.menu');menu.onclick=()=>{const open=menu.get
 document.querySelectorAll('[data-image]').forEach(d=>d.addEventListener('toggle',()=>{if(!d.open)return;document.querySelectorAll('[data-image]').forEach(other=>{if(other!==d)other.open=false;});const img=document.querySelector('#style-image');img.src=imagePath(Number(d.dataset.image));img.alt=d.dataset.alt;}));
 document.querySelector('#inquiry').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.target);const body=`Hi Robb,\n\nI'd like to discuss a tattoo.\n\nName: ${data.get('name')}\nEmail: ${data.get('email')}\nPlacement: ${data.get('placement')}\nStyle: ${data.get('style')}\n\nMy idea:\n${data.get('idea')}\n\nThanks!`;const url=`mailto:tattooedncolor@gmail.com?subject=${encodeURIComponent('Tattoo inquiry from '+data.get('name'))}&body=${encodeURIComponent(body)}`;const status=document.querySelector('#form-status');status.replaceChildren(document.createTextNode('Your email draft is ready. '));const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';link.textContent='Open your email draft';status.append(link,document.createTextNode(' if your email app did not open. Review your message and press Send in your email app. You can also call (760) 912-0549.'));link.click();});
 document.querySelector('#year').textContent=new Date().getFullYear();
+
+const mapFrame=document.querySelector('.live-map iframe');
+const mapLabel=document.querySelector('#map-view-label');
+const mapButtons=document.querySelectorAll('[data-map-city],[data-map-view]');
+mapButtons.forEach(button=>button.addEventListener('click',()=>{
+ mapButtons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+ const city=button.dataset.mapCity;
+ const studio=button.dataset.mapView==='studio';
+ const query=city?`${city}, California, US`:studio?'40555 California Oaks Road Suite 131 Murrieta CA':'Murrieta California';
+ const params=new URLSearchParams({q:query,output:'embed',z:city?'12':studio?'16':'10'});
+ if(!city&&!studio)params.set('ll','33.61,-117.22');
+ mapFrame.src=`https://www.google.com/maps?${params}`;
+ mapFrame.title=city?`Google Maps: ${city}, California`:studio?'Google Maps: ThINK Tattoo studio address':'Google Maps: regional view of the five communities served';
+ mapLabel.textContent=city?`${city.toUpperCase()}, CA, US · AREA SERVED`:studio?'40555 CALIFORNIA OAKS ROAD · STUDIO':'ALL AREAS · SOUTHWEST RIVERSIDE COUNTY';
+ document.querySelector('.live-map>div a').href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}));
