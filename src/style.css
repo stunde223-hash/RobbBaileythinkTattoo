@@ -21,3 +21,8 @@
 .header{background-color:#080809;background-image:linear-gradient(105deg,#040405 0%,#18181b 43%,#09090b 72%,#030304 100%);border-bottom-color:#ffffff26}
 .editorial-footer{background-image:url('/black-grain.svg'),linear-gradient(118deg,#030304 0%,#111113 30%,#1b1b1e 48%,#0a0a0c 69%,#030304 100%)}
 .editorial-footer .footer-display{color:#343437}.header nav.open{background-color:#080809;background-image:var(--black-sheen)}
+/* Preserve the portrait's directional light and depth instead of dimming it twice. */
+.hero-backdrop{filter:contrast(1.06) saturate(.94);object-position:50% 12%}
+.hero-shade{background:linear-gradient(180deg,rgba(3,4,5,.08) 0%,rgba(3,4,5,.17) 24%,rgba(3,4,5,.25) 48%,rgba(3,4,5,.60) 73%,rgba(3,4,5,.50) 100%)}
+.hero .eyebrow{color:#f2cda8}.hero-description{color:#fff9f0}.hero-bottom{color:#eee7dd}
+@media(max-width:680px){.hero-backdrop{object-position:46% 35%;filter:contrast(1.04) saturate(.94)}.hero-shade{background:linear-gradient(180deg,rgba(3,4,5,.08) 0%,rgba(3,4,5,.20) 28%,rgba(3,4,5,.40) 48%,rgba(3,4,5,.65) 70%,rgba(3,4,5,.48) 100%)}}
