@@ -51,3 +51,16 @@ On a machine with an existing Chromium executable, set `CHROMIUM_PATH` to its pa
 ## Design direction
 
 Obsidian black, graphite, warm brass; Barlow Condensed, DM Sans, and Cormorant Garamond. Uses the four non-construction references for overall editorial structure. The supplied Ink Sanity logo is used as requested, alongside the ThINK Tattoo name. The footer follows the Dragonborn reference and credits northbridgelogic.com. The location section embeds Google Maps for the supplied address and includes a direct directions link. Internet access is required. Cloud network policy blocked live map rendering during verification; the iframe and fallback link were checked. Subtle static black sheen and fine original grain provide the requested reflective finish. No harsh gradients, shadows, hover animations, glass effects, neon, rounded cards, or made-up reviews. Reduced motion is respected. Gallery images reserve space and use neutral loading placeholders.
+
+## Cloudflare Workers deployment
+
+This repository includes `wrangler.jsonc` for the connected Worker `robbbaileythinktattoo`. Its custom build runs `npm run build` and serves the resulting `dist` assets.
+
+In the Cloudflare Worker Git build settings use:
+
+- Production branch: `main`
+- Root directory: `/`
+- Build command: leave empty (Wrangler runs the configured build)
+- Deploy command: `npx wrangler deploy`
+
+Deploy the latest commit after pulling these configuration changes. For local CLI deployment, run `npm ci`, `npx wrangler login`, then `npx wrangler deploy`. Login opens your browser; never put API tokens in this repository.
