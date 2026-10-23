@@ -16,3 +16,5 @@ Validation: 12 Playwright browser checks passed across desktop and mobile. All d
 Remaining content: two video files, higher-resolution original photographs if available, and owner confirmation of the studio address before public launch.
 
 Latest revision: supplied logo in header/footer/favicon; Dragonborn-style footer and NorthBridge Logic credit. Latin-only font subsets and responsive WebP portrait reduce loading cost. No third-party map embed or external font requests. Restored portrait detail is inferred; original retained.
+
+Current revision: full-width background portrait with centered heading following the Dragonborn hero reference. All sections now use black/graphite tones. Send inquiry launches a prefilled mailto draft in the visitor’s configured email app. Real Google Maps embed replaces the schematic map; cloud policy blocks Google Maps, so live map rendering remains unverified in this environment. Direct directions fallback is included. All 12 browser interaction checks pass; those checks verify the iframe configuration, not Google’s remote rendering.
