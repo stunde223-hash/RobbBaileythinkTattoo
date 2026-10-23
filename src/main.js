@@ -1,8 +1,8 @@
-import '@fontsource/barlow-condensed/600.css';
-import '@fontsource/barlow-condensed/700.css';
-import '@fontsource/dm-sans/400.css';
-import '@fontsource/dm-sans/500.css';
-import '@fontsource/cormorant-garamond/400-italic.css';
+import '@fontsource/barlow-condensed/latin-600.css';
+import '@fontsource/barlow-condensed/latin-700.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
+import '@fontsource/cormorant-garamond/latin-400-italic.css';
 import './style.css';
 const works = [
  {id:74,name:'Fire & instinct',style:'Color',alt:'Red and gold creature tattoo covering an upper arm'},
@@ -30,7 +30,7 @@ gallery.addEventListener('click',e=>{const b=e.target.closest('[data-index]');if
 function move(delta){current=(current+delta+filtered.length)%filtered.length;showImage();}
 document.querySelector('#previous').onclick=()=>move(-1);document.querySelector('#next').onclick=()=>move(1);
 document.querySelector('.close-dialog').onclick=()=>dialog.close();dialog.addEventListener('close',()=>document.body.classList.remove('modal-open'));dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1);});
-document.querySelector('#rotate-art').addEventListener('click',()=>{const swapped=document.querySelector('.image-stage').classList.toggle('swapped');document.querySelector('.art-label span:last-child').textContent=swapped?'02 / 02':'01 / 02';});
+
 const menu=document.querySelector('.menu');menu.onclick=()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close':'Menu';document.querySelector('#navigation').classList.toggle('open',open);};document.querySelectorAll('#navigation a').forEach(a=>a.onclick=()=>{menu.setAttribute('aria-expanded','false');menu.textContent='Menu';document.querySelector('#navigation').classList.remove('open');});
 document.querySelectorAll('[data-image]').forEach(d=>d.addEventListener('toggle',()=>{if(!d.open)return;document.querySelectorAll('[data-image]').forEach(other=>{if(other!==d)other.open=false;});const img=document.querySelector('#style-image');img.src=imagePath(Number(d.dataset.image));img.alt=d.dataset.alt;}));
 document.querySelector('#inquiry').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.target);const body=`Hi Robb,\n\nI'd like to discuss a tattoo.\n\nName: ${data.get('name')}\nEmail: ${data.get('email')}\nPlacement: ${data.get('placement')}\nStyle: ${data.get('style')}\n\nMy idea:\n${data.get('idea')}\n\nThanks!`;const url=`mailto:tattooedncolor@gmail.com?subject=${encodeURIComponent('Tattoo inquiry from '+data.get('name'))}&body=${encodeURIComponent(body)}`;const status=document.querySelector('#form-status');status.replaceChildren(document.createTextNode('Your email draft is ready. '));const link=document.createElement('a');link.href=url;link.textContent='Open your email draft';status.append(link,document.createTextNode(' to send it, or call (760) 912-0549.'));});

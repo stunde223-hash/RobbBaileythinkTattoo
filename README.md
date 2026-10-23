@@ -1,6 +1,6 @@
 # ThINK Tattoo · Robb Bailey
 
-A local-first tattoo portfolio website built with Vite, HTML, CSS, and JavaScript. Includes 75 supplied photographs, locally hosted fonts, a dimensional featured-image display, a filterable portfolio, keyboard-accessible image viewer, service accordions, FAQs, an email inquiry builder, and privacy/terms pages.
+A local-first tattoo portfolio website built with Vite, HTML, CSS, and JavaScript. Includes 75 supplied photographs, locally hosted fonts, a dimensional artist portrait, a filterable portfolio, keyboard-accessible image viewer, service accordions, FAQs, an email inquiry builder, and privacy/terms pages.
 
 ## Run on your laptop
 
@@ -40,9 +40,9 @@ On a machine with an existing Chromium executable, set `CHROMIUM_PATH` to its pa
 - The Facebook source gives 40555 California Oaks Road, Suite 131, Murrieta, CA. Menifee is described as a nearby community served. Confirm this with Robb before public launch.
 - Contact: (760) 912-0549 and tattooedncolor@gmail.com, as supplied.
 - The uploaded tattoo archive contains 75 JPEGs and no videos. Both requested videos remain outstanding. Intended placement: an artist introduction alongside the artist section and a session/process film in the experience section. Actual placement should follow a review of the footage. No fake players or unrelated videos are shown.
-- Most supplied images are 206 × 206 pixels. Two are 540 × 960 and are used in the hero. Original higher-resolution photos will improve gallery and portrait sharpness.
+- Most supplied images are 206 × 206 pixels. Two are 540 × 960 and appear in the portfolio. Original higher-resolution photos will improve gallery and portrait sharpness.
 - All supplied photos are retained in `public/images`. `source-index.json` maps filenames to the original uploads. Selected works are configured in `src/main.js`; the page content is in `index.html`.
-- The 3D effect uses CSS perspective on photo panels. It does not fabricate tattoo details or turn the actual artwork into a generated 3D model.
+- The hero uses an AI-restored version of the supplied Robb portrait, responsive WebP sizes, and CSS perspective. Restored detail is inferred, not recovered original detail. The original remains at public/images/71.jpg. Tattoo portfolio images are unchanged.
 - The inquiry form validates fields and creates an email draft link. The visitor must open their email app and send the message. There is no server-side submission, payment, or automatic booking.
 - Pricing promotions and conflicting review counts were deliberately omitted. No fabricated testimonials are included.
 - Privacy and website terms describe the implemented website; studio booking, cancellation, and deposit policies must be supplied and agreed directly with Robb.
@@ -50,4 +50,4 @@ On a machine with an existing Chromium executable, set `CHROMIUM_PATH` to its pa
 
 ## Design direction
 
-Charcoal, parchment, muted brass; Barlow Condensed, DM Sans, and Cormorant Garamond. Uses the four non-construction references for overall editorial structure. No gradients, shadows, hover animations, glass effects, neon, rounded cards, or made-up reviews. Reduced motion is respected. Gallery images reserve space and use neutral loading placeholders.
+Charcoal, parchment, muted brass; Barlow Condensed, DM Sans, and Cormorant Garamond. Uses the four non-construction references for overall editorial structure. The supplied Ink Sanity logo is used as requested, alongside the ThINK Tattoo name. The footer follows the Dragonborn reference and credits northbridgelogic.com. A lightweight illustrative location map links to accurate Google Maps directions. No gradients, shadows, hover animations, glass effects, neon, rounded cards, or made-up reviews. Reduced motion is respected. Gallery images reserve space and use neutral loading placeholders.
